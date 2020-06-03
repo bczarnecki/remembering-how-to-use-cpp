@@ -4,18 +4,18 @@
 // Cosntructor
 TrainCar::TrainCar()
 {
-    previousCar_m = NULL;
-    nextCar_m = NULL;
+    previous_car_ = NULL;
+    next_car_ = NULL;
 }
 
-// Adds car to nextCar_m
-int TrainCar::attachCar(TrainCar* tc)
+// Adds car to next_car_
+int TrainCar::AttachCar(TrainCar* tc)
 {
     int errorCode;
     if (NULL != tc)
     {
-        nextCar_m = tc;
-        tc->previousCar_m = this;
+        next_car_ = tc;
+        tc->previous_car_ = this;
         errorCode = 0;
     }
     else
@@ -23,6 +23,16 @@ int TrainCar::attachCar(TrainCar* tc)
         errorCode = -1;
     }
     return errorCode;
+}
+
+int TrainCar::ActivateBrake()
+{
+
+}
+
+int TrainCar::DeactivateBrake()
+{
+
 }
 
 // Destructor
