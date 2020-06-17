@@ -4,8 +4,8 @@
 // Cosntructor
 TrainCar::TrainCar()
 {
-    previous_car_ = NULL;
-    next_car_ = NULL;
+    previous_car_ = nullptr;
+    next_car_ = nullptr;
     brake_status_ = BrakeStatus::kBrakeEngaged;
 }
 
@@ -13,7 +13,7 @@ TrainCar::TrainCar()
 TrainCar::ErrorStatus TrainCar::AttachCar(TrainCar* tc)
 {
     ErrorStatus errorCode;
-    if (NULL != tc)
+    if (nullptr != tc)
     {
         next_car_ = tc;
         tc->previous_car_ = this;
@@ -41,7 +41,7 @@ TrainCar::ErrorStatus TrainCar::DeactivateBrake()
 void TrainCar::ReportStatus()
 {
     // Report front linkage status
-    if (NULL == previous_car_)
+    if (nullptr == previous_car_)
     {
         std::cout << "Front linkage: Disconnected" << std::endl;
     }
@@ -51,7 +51,7 @@ void TrainCar::ReportStatus()
     }
 
     // Report rear linkage status
-    if (NULL == next_car_)
+    if (nullptr == next_car_)
     {
         std::cout << "Rear linkage: Disconnected" << std::endl;
     }
