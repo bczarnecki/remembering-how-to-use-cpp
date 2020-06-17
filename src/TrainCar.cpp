@@ -38,8 +38,41 @@ TrainCar::ErrorStatus TrainCar::DeactivateBrake()
     return ErrorStatus::kNoError;
 }
 
+void TrainCar::ReportStatus()
+{
+    // Report front linkage status
+    if (NULL == previous_car_)
+    {
+        std::cout << "Front linkage: Disconnected" << std::endl;
+    }
+    else
+    {
+        std::cout << "Front linkage: Connected" << std::endl;
+    }
+
+    // Report rear linkage status
+    if (NULL == next_car_)
+    {
+        std::cout << "Rear linkage: Disconnected" << std::endl;
+    }
+    else
+    {
+        std::cout << "Rear linkage: Connected" << std::endl;
+    }
+
+    // Report brake status
+    if (BrakeStatus::kBrakeEngaged == brake_status_)
+    {
+        std::cout << "Brakes: Engaged" << std::endl;
+    }
+    else
+    {
+        std::cout << "Brakes: Disengaged" << std::endl;
+    }
+}
+
 // Destructor
 TrainCar::~TrainCar()
 {
-    std::cout << "Destructing TrainCar" << std::endl;
+    //std::cout << "Destructing TrainCar" << std::endl;
 }

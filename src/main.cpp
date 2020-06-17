@@ -12,7 +12,6 @@ std::ostream& operator<<(typename std::enable_if<std::is_enum<T>::value, std::os
 int main()
 {
     TrainCar car1;
-    TrainCar::ErrorStatus err_stat = car1.ActivateBrake();
-    std::cout << err_stat << std::endl;
+    car1.ReportStatus();
     return 0;
 }

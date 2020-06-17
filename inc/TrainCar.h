@@ -20,6 +20,7 @@ public:
     ErrorStatus ActivateBrake();
     ErrorStatus DeactivateBrake();
     ErrorStatus AttachCar(TrainCar*);
+    virtual void ReportStatus();
     virtual ~TrainCar();
 };
 
