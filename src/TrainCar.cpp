@@ -6,33 +6,36 @@ TrainCar::TrainCar()
 {
     previous_car_ = NULL;
     next_car_ = NULL;
+    brake_status_ = BrakeStatus::kBrakeEngaged;
 }
 
 // Adds car to next_car_
-int TrainCar::AttachCar(TrainCar* tc)
+TrainCar::ErrorStatus TrainCar::AttachCar(TrainCar* tc)
 {
-    int errorCode;
+    ErrorStatus errorCode;
     if (NULL != tc)
     {
         next_car_ = tc;
         tc->previous_car_ = this;
-        errorCode = 0;
+        errorCode = ErrorStatus::kNoError;
     }
     else
     {
-        errorCode = -1;
+        errorCode = ErrorStatus::kAttachCarError;
     }
     return errorCode;
 }
 
-int TrainCar::ActivateBrake()
+TrainCar::ErrorStatus TrainCar::ActivateBrake()
 {
-
+    brake_status_ = BrakeStatus::kBrakeEngaged;
+    return ErrorStatus::kNoError;
 }
 
-int TrainCar::DeactivateBrake()
+TrainCar::ErrorStatus TrainCar::DeactivateBrake()
 {
-
+    brake_status_ = BrakeStatus::kBrakeNotEngaged;
+    return ErrorStatus::kNoError;
 }
 
 // Destructor
