@@ -7,10 +7,10 @@ LDIR =../lib
 
 LIBS=-lm
 
-_DEPS = TrainCar.h
+_DEPS = TrainCar.h Train.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o TrainCar.o
+_OBJ = main.o TrainCar.o Train.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
